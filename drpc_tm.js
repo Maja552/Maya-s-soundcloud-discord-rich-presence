@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kanade's Soundcloud Discord Rich Presence
-// @namespace    https://github.com/MikazukiKanade/Kanade-s-Soundcloud-Discord-Rich-Presence
-// @version      1.0
+// @namespace    http://tampermonkey.net/
+// @version      0.1
 // @description  Script to connect discord and soundcloud
 // @author       Kanade
 // @match        https://soundcloud.com/*
@@ -9,6 +9,7 @@
 // ==/UserScript==
 
 (function() {
+	// Made by Kanade
     console.info("Kanade's Soundcloud Discord Rich Presence loaded!");
 
     var s_image = "_image";
@@ -28,6 +29,7 @@
     function setup_variables()
     {
         s_image = document.querySelectorAll('[property="og:image"]')[0].content;
+        /*
         s_title = document.getElementsByTagName("title")[0].textContent;
         s_title = s_title.slice(1, s_title.Length);
         s_author = "";
@@ -41,6 +43,11 @@
         }
 
         //s_title = str.split(" ");
+        */
+
+        s_author = document.querySelectorAll('[class="playbackSoundBadge__lightLink sc-link-light sc-truncate"]')[0].textContent;
+        s_title = document.querySelectorAll('[class="playbackSoundBadge__titleLink sc-truncate"]')[0].getAttribute("title");
+
         s_valuenow = document.querySelectorAll('[aria-valuenow]')[0].getAttribute("aria-valuenow");
         s_length = document.querySelectorAll('[class="playbackTimeline__duration"]')[0].childNodes[1].textContent;
         try {
@@ -122,6 +129,11 @@
 
     function check_music()
     {
+        
+        //console.log(document.querySelectorAll('[class="playbackSoundBadge__lightLink sc-link-light sc-truncate"]')[0].textContent);
+        //console.log(document.querySelectorAll('[class="playbackSoundBadge__titleLink sc-truncate"]')[0].getAttribute("title"));
+        //title
+        
         console.log("///NEXT MUSIC CHECK///");
         if (requestingPush == false) {
             lastSong = s_title;
