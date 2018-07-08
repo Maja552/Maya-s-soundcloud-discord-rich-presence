@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kanade's Soundcloud Discord Rich Presence
-// @namespace    http://tampermonkey.net/
-// @version      0.1
+// @namespace    https://github.com/MikazukiKanade/Kanade-s-Soundcloud-Discord-Rich-Presence
+// @version      1.0
 // @description  Script to connect discord and soundcloud
 // @author       Kanade
 // @match        https://soundcloud.com/*
@@ -9,7 +9,6 @@
 // ==/UserScript==
 
 (function() {
-	// Made by Kanade
     console.info("Kanade's Soundcloud Discord Rich Presence loaded!");
 
     var s_image = "_image";
